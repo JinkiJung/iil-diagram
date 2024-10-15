@@ -21,7 +21,6 @@ export const nodes = writable<AppNode[]>([
     },
     style: `
       backgroundColor: rgba(208, 192, 247, 0.2);
-      width: 400px;
     `
   },
   {

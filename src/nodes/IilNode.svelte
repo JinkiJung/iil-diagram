@@ -106,8 +106,7 @@
 
     .container {
         display: flex;
-        width: 100%;
-  max-width: 1200px; /* Set a maximum width */
+  max-width: 1600px; /* Set a maximum width */
   box-sizing: border-box; /* Include padding in element’s width */
   flex-direction: row;
   align-items: stretch;
@@ -116,16 +115,12 @@
   .row {
     display: flex;
   flex-wrap: wrap; /* Allow columns to wrap to a new line on small screens */
-  margin-left: -15px;
-  margin-right: -15px;
+  
   }
 
   .column {
     flex: 1; /* Columns take equal width */
-    padding-left: 15px;
-    padding-right: 15px; /* Column padding */
     box-sizing: border-box; /* Ensure padding doesn’t affect width */
     background-color: #F5F5F5;
-    width: 100px;
     }
   </style>
