@@ -10,7 +10,7 @@
     } from '@xyflow/svelte';
   
     import { nodes } from '../nodes-and-edges';
-    import RoundRect from './RoundRect.svelte';
+    import Rect from './Rect.svelte';
   
     export let value: string;
     $$restProps;
@@ -24,7 +24,7 @@
   
   <div class="wrapper gradient nodrag fitChild">
     <div class="inner">
-      <RoundRect circleOnLeft={false} text={value} />
+      <Rect text={value} />
     </div>
   </div>
   

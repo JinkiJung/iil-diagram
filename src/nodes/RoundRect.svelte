@@ -1,8 +1,8 @@
 <script>
     export let circleOnLeft = true;
+    export let text = "";
     let height = 14; // Default width
     let width = 80; // Adjust height based on width
-    let inputValue = "";
     const padding = 2;
     const paddingOppositeCircle = 30;
 
@@ -20,7 +20,7 @@
     let circleCy = height / 2;
     let circleR = height / 4;
 
-    $: width = Math.max(80, inputValue.length * 6 + 25);
+    $: width = Math.max(80, text.length * 6 + 25);
   </script>
   
   <svg class="roundrect" width={width} height={height} viewBox={`-0.5 -0.5 ${width+1} ${height+1}`} xmlns="http://www.w3.org/2000/svg">
@@ -29,13 +29,13 @@
     {#if circleOnLeft}
     <foreignObject x={circleCx + padding * 4} y={1} width={width- paddingOppositeCircle} height={height - padding*2}>
         <div>
-          <input type="text" placeholder="Hello" bind:value={inputValue}>
+          <input type="text" placeholder="Hello" bind:value={text}>
         </div>
     </foreignObject>
     {:else}
     <foreignObject x={padding * 4} y={1} width={width- paddingOppositeCircle} height={height - padding*2}>
         <div>
-          <input type="text" placeholder="Hello" bind:value={inputValue}>
+          <input type="text" placeholder="Hello" bind:value={text}>
         </div>
     </foreignObject>
     {/if}

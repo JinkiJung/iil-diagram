@@ -14,6 +14,7 @@
     import IilActivateIf from './IilActivateIf.svelte';
     import IilOutput from './IilOutput.svelte';
     import IilActDoneIf from './IilActDoneIf.svelte';
+    import IilAct from './IilAct.svelte';
   
     type $$Props = NodeProps;
     export let id: $$Props['id'];
@@ -39,30 +40,9 @@
             </div>
         </div>
         <div class="column">
-            <div class="row">
-                <label for="actor-{id}">actor</label>
-            </div>
-            <div class="row">
-                <input
-                  id="actor-{id}"
-                  type="text"
-                  class="nodrag"
-                  value={data.actor}
-                  on:change={updateValue(id, data.actor)}
-                />
-            </div>
-            <div class="row">
-                <label for="act-{id}">act</label>
-            </div>
-            <div class="row">
-                <input
-                  id="act-{id}"
-                  type="text"
-                  class="nodrag"
-                  value={data.act}
-                  on:change={updateValue(id, data.act)}
-                />
-            </div>
+          <div class="row">
+            <IilAct value="test"/>
+        </div>
         </div>
         <div class="column">
             <div class="row">
