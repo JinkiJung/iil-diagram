@@ -1,10 +1,14 @@
 <script>
+    import { getTextLengthInPx } from "../lib/textLengthRuler";
+
   export let text = "";
+  export let font = "10px sans-serif";
     let height = 14; // Default width
     let width = 80; // Adjust height based on width
-    let input_width = width - 2;
-    let min_input_width = 80;
     const padding = 2;
+    let input_width = width - padding;
+    let min_input_width = 80;
+    
     const paddingOppositeCircle = 30;
 
     // Points for a hexagon, adjusting middle width with the width prop
@@ -18,19 +22,9 @@
     `;
 
     function updateWidth() {
-      input_width = Math.max(min_input_width, getTextWidth(text, "10px sans-serif") + 4);
+      input_width = Math.max(min_input_width, getTextLengthInPx(text, font) + 4);
       width = input_width + 4;
     }
-
-    function getTextWidth(text, font) {
-      // if given, use cached canvas for better performance
-      // else, create new canvas
-      var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
-      var context = canvas.getContext("2d");
-      context.font = font;
-      var metrics = context.measureText(text);
-      return metrics.width;
-    };
 
     //$: width = Math.max(80, text.length * 5);
     $: text, updateWidth();

@@ -55,13 +55,14 @@
     
     </div>
   </div>
-  <Handle type="target" position={Position.Left} />
-  <Handle type="source" position={Position.Right} />
+  <Handle type="target" position={Position.Left} 
+    style="top:16px; left: -3px;"/>
+  <Handle type="source" position={Position.Right} 
+    style="top:16px; right: -3px;"/>
   
   <style>
     :global(.svelte-flow__node-iil) {
       font-size: 10px;
-      width: 180px;
       background: #f5f5f6;
       color: #222;
       box-shadow:
@@ -85,17 +86,16 @@
     }
 
     .container {
-        display: flex;
-  max-width: 1600px; /* Set a maximum width */
-  box-sizing: border-box; /* Include padding in element’s width */
-  flex-direction: row;
-  align-items: stretch;
-  }
+      display: flex;
+      width: fit-content; /* Adjust width to fit the content */
+      box-sizing: border-box; /* Include padding in element’s width */
+      flex-direction: row;
+      align-items: stretch;
+    }
 
   .row {
     display: flex;
   flex-wrap: wrap; /* Allow columns to wrap to a new line on small screens */
-  
   }
 
   .column {

@@ -10,9 +10,10 @@
     } from '@xyflow/svelte';
   
     import { nodes } from '../nodes-and-edges';
-    import RoundRect from './RoundRect.svelte';
+    import IilCondition from './IilCondition.svelte';
   
     export let value: string;
+    export let placeholder: string;
     $$restProps;
   
     const updateValue = (id: string, val: string) => (event) => {
@@ -22,9 +23,5 @@
     };
   </script>
   
-  <div class="wrapper gradient nodrag fitChild">
-    <div class="inner">
-      <RoundRect circleOnLeft={true} />
-    </div>
-  </div>
+<IilCondition hasCircle={true} circleOnLeft={true} {value} {placeholder}/>
   

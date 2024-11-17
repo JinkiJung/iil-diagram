@@ -11,7 +11,7 @@
   
     import { nodes } from '../nodes-and-edges';
     import Hexagon from './Hexagon.svelte';
-    import RoundRect from './RoundRect.svelte';
+    import IilCondition from './IilCondition.svelte';
   
     export let value: string;
   
@@ -22,9 +22,5 @@
     };
   </script>
   
-  <div class="wrapper gradient nodrag fitChild">
-    <div class="inner">
-      <Hexagon circleOnLeft={false} />
-    </div>
-  </div>
+  <IilCondition hasCircle={true} circleOnLeft={false} {value} />
   

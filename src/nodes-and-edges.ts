@@ -40,8 +40,25 @@ export const nodes = writable<AppNode[]>([
     },
     style: `
       backgroundColor: rgba(208, 192, 247, 0.2);
-      width: 100px;
-      height: 180px;
+    `
+  },
+  {
+    id: '3',
+    type: 'iil',
+    position: {
+      x: 0,
+      y: 300
+    },
+    data: {
+      activateIf: "hello",
+      input: "dear",
+      actor: "me",
+      act: "doing what",
+      actDoneIf: "trash",
+      output: "world"
+    },
+    style: `
+      backgroundColor: rgba(208, 192, 247, 0.2);
     `
   }
   ]);
