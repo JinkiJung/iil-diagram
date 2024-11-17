@@ -11,8 +11,8 @@
   
     import Hexagon from './Hexagon.svelte';
   
-    export let hasCircle: boolean = true;
-    export let circleOnLeft: boolean = true;
+    export let hasCircle: boolean = false;
+    export let circleOnLeft: boolean = false;
     export let placeholder: string = "";
     export let value: string = "";
   </script>

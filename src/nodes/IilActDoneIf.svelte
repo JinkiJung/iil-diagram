@@ -9,18 +9,12 @@
       type Dimensions
     } from '@xyflow/svelte';
   
-    import { nodes } from '../nodes-and-edges';
-    import IilContent from './IilContent.svelte';
+    import IilCondition from './IilCondition.svelte';
   
     export let value: string = "";
     export let placeholder: string = "";
     $$restProps;
   
-    const updateValue = (id: string, val: string) => (event) => {
-      console.log(val);
-  
-      $nodes = $nodes;
-    };
   </script>
   
-<IilContent hasCircle={true} circleOnLeft={false} {value} {placeholder} />
+  <IilCondition hasCircle={true} circleOnLeft={false} {value} {placeholder}/>

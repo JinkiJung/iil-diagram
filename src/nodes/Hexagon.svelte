@@ -2,7 +2,7 @@
     import { getTextLengthInPx } from "../lib/textLengthRuler";
 
   export let hasCircle = false;
-    export let circleOnLeft = true;
+    export let circleOnLeft = false;
     export let text = "";
     export let placeholder= "";
     export let font = "10px sans-serif";
@@ -13,7 +13,7 @@
     let circleR = 3.5;
     let circleOffset = 8;
     let min_input_width = hasCircle ? width - paddingLR - circleOffset:
-      width - paddingLR;
+      width - paddingLR * 2;
     let input_width = min_input_width;
     let circleCx = 0;
     let pOffset = 0.5;
@@ -30,7 +30,7 @@
 
     function updateWidth() {
       input_width = Math.max(min_input_width, getTextLengthInPx(text, font) + 4);
-      width = hasCircle ? input_width + paddingLR + circleOffset + circleR * 2: input_width + paddingLR;
+      width = hasCircle ? input_width + paddingLR + circleOffset + circleR * 2: input_width + paddingLR * 2;
       if (hasCircle) {
         circleCx = circleOnLeft ? padding + circleOffset : padding + input_width + circleOffset;
       }

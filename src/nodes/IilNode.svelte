@@ -15,6 +15,7 @@
     import IilOutput from './IilOutput.svelte';
     import IilActDoneIf from './IilActDoneIf.svelte';
     import IilAct from './IilAct.svelte';
+    import IilCondition from './IilCondition.svelte';
   
     type $$Props = NodeProps;
     export let id: $$Props['id'];
@@ -33,10 +34,10 @@
     <div class="container">
         <div class="column">
             <div class="row">
-                <IilInput value="test"/>
+                <IilInput value="test" placeholder="input"/>
             </div>
             <div class="row">
-                <IilActivateIf value="test"/>
+                <IilActivateIf value="test" placeholder="activateIf"/>
             </div>
         </div>
         <div class="column">
@@ -46,13 +47,17 @@
         </div>
         <div class="column">
             <div class="row">
-                <IilOutput value="test"/>
+                <IilOutput value="test" placeholder="output"/>
             </div>
             <div class="row">
-                <IilActDoneIf value="test"/>
+                <IilActDoneIf value="test" placeholder="actDoneIf"/>
             </div>
         </div>
-    
+        <div class="column">
+          <div class="row">
+              <IilCondition hasCircle={false} value="test" placeholder="output"/>
+          </div>
+      </div>
     </div>
   </div>
   <Handle type="target" position={Position.Left} 
