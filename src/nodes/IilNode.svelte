@@ -32,6 +32,7 @@
   let divElement; // 크기를 감지할 div 요소를 참조할 변수
   let width = 0;
   let height = 0;
+  let hasCheckout = false;
 
   let resizeObserver;
 
@@ -67,9 +68,6 @@
   };
 </script>
 
-
-
-
 <div class="iil" id={id}>
   <div class="container">
     <div class="column" >
@@ -97,9 +95,10 @@
         </div>
       </div>
     </div>
-
+    
     <div class="column">
       <div class="row">
+        {#if hasCheckout}
         <div style="position: relative; width: 100%; height: 100%;">
           <svg width="100" height={height}>
             <line x1="0" y1="0" x2="100" y2="100%" stroke="black" stroke-width="1" />
@@ -109,12 +108,22 @@
             <IilCondition hasCircle={false} value="test" placeholder="output" />
           </div>
         </div>
+        {:else}
+        <button on:click="{() => hasCheckout = true}">Add Checkout</button>
+        {/if}
       </div>
     </div>
   
   </div>
 </div>
 <Handle type="target" position={Position.Left} style="top:16px; left: -3px;" />
+{#if !hasCheckout}
+<Handle
+  type="source"
+  position={Position.Right}
+  style="top:16px; right: -3px;"
+/>
+{:else}
 <Handle
   type="source"
   position={Position.Right}
@@ -128,6 +137,7 @@
   style="top:{height}px; right: -3px;"
   id="no"
 />
+{/if}
 
 <style>
   :global(.svelte-flow__node-iil) {
