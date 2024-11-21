@@ -66,6 +66,15 @@
 
     $nodes = $nodes;
   };
+
+  const isValidConnection = (connection: any) => {
+    if ((connection.sourceHandle === "r" || connection.sourceHandle === "r-yes" || connection.sourceHandle === "r-no") && connection.targetHandle === "l") {
+      return true;
+    } else if (connection.sourceHandle === "b" && connection.targetHandle === "t") {
+      return true;
+    } 
+    return false;
+  }
 </script>
 
 <div class="iil" id={id}>
@@ -94,6 +103,10 @@
           </div>
         </div>
       </div>
+      <Handle type="target" position={Position.Top}
+        id="t" style="top:0px;" {isValidConnection}/>
+      <Handle type="source" position={Position.Bottom}
+        id="b" style="bottom:0px;" {isValidConnection}/>
     </div>
     
     <div class="column">
@@ -109,33 +122,38 @@
           </div>
         </div>
         {:else}
-        <button on:click="{() => hasCheckout = true}">Add Checkout</button>
+        <button on:click="{() => hasCheckout = true}">+</button>
         {/if}
       </div>
     </div>
   
   </div>
 </div>
-<Handle type="target" position={Position.Left} style="top:16px; left: -3px;" />
+<Handle type="target" position={Position.Left}
+  id="l" style="top:16px; left: -3px;" {isValidConnection}/>
 {#if !hasCheckout}
 <Handle
   type="source"
   position={Position.Right}
   style="top:16px; right: -3px;"
+  id="r"
+  {isValidConnection}
 />
 {:else}
 <Handle
   type="source"
   position={Position.Right}
   style="top:0px; right: -3px;"
-  id="yes"
+  {isValidConnection}
+  id="r-yes"
 />
 
 <Handle
   type="source"
   position={Position.Right}
   style="top:{height}px; right: -3px;"
-  id="no"
+  {isValidConnection}
+  id="r-no"
 />
 {/if}
 

@@ -34,7 +34,6 @@
       if (hasCircle) {
         circleCx = circleOnLeft ? padding + circleOffset : padding + input_width + circleOffset;
       }
-      console.log(width);
       points = getPoints();
     }
 
