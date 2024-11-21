@@ -80,8 +80,8 @@
 <div class="iil" id={id}>
   <div class="container">
     <div class="column" >
-      <div class="container iilbody">
-        <div class="column" bind:this={divElement}>
+      <div class="container iilbody" bind:this={divElement}>
+        <div class="column">
           <div class="row">
             <IilInput value={data.input} placeholder="input" />
           </div>
@@ -103,10 +103,6 @@
           </div>
         </div>
       </div>
-      <Handle type="target" position={Position.Top}
-        id="t" style="top:0px;" {isValidConnection}/>
-      <Handle type="source" position={Position.Bottom}
-        id="b" style="bottom:0px;" {isValidConnection}/>
     </div>
     
     <div class="column">
@@ -131,6 +127,10 @@
 </div>
 <Handle type="target" position={Position.Left}
   id="l" style="top:16px; left: -3px;" {isValidConnection}/>
+<Handle type="target" position={Position.Top}
+  id="t" style="top:0px; left: 130px;" {isValidConnection}/>
+<Handle type="source" position={Position.Bottom}
+  id="b" style="bottom:0px; left: 130px;" {isValidConnection}/>
 {#if !hasCheckout}
 <Handle
   type="source"
