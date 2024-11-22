@@ -8,6 +8,9 @@ dependencies:
   '@xyflow/svelte':
     specifier: ^0.1.20
     version: 0.1.20(svelte@4.2.19)
+  uuid:
+    specifier: ^11.0.3
+    version: 11.0.3
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
@@ -1098,6 +1101,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
+
+  /uuid@11.0.3:
+    resolution: {integrity: sha512-d0z310fCWv5dJwnX1Y/MncBAqGMKEzlBb1AOf7z9K8ALnd0utBX/msg/fA0+sbyN1ihbMsLhrBlnl1ak7Wa0rg==}
+    hasBin: true
+    dev: false
 
   /vite@5.4.8:
     resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}

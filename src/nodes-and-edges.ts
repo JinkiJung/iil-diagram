@@ -69,7 +69,20 @@ export const nodes = writable<AppNode[]>([
       id: '1-2',
       type: 'default',
       source: '1',
+      sourceHandle: 'r',
       target: '2',
+      targetHandle: 'l',
+      label: 'Edge Text'
+    },
+    {
+      id: '3-2',
+      type: 'smoothstep',
+      source: '3',
+      sourceHandle: 'b',
+      target: '2',
+      targetHandle: 't',
       label: 'Edge Text'
     }
   ]);
+
+  

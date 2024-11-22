@@ -7,6 +7,7 @@
     useInternalNode,
     type BuiltInNode,
     type Dimensions,
+    NodeResizer,
   } from "@xyflow/svelte";
   import { onMount, onDestroy } from "svelte";
   import { nodes } from "../nodes-and-edges";
@@ -19,6 +20,7 @@
 
   type $$Props = NodeProps;
   export let id: $$Props["id"];
+  export let selected: $$Props['selected'] = undefined;
   export let data: $$Props["data"] & {
     input: string;
     activateIf: string;
@@ -75,8 +77,19 @@
     } 
     return false;
   }
+
+  function handleKeyDown(event: CustomEvent<any>) {
+    //let key = event.key;
+    console.log(`Key pressed: ${event}`);
+  }
+
+  const deleteNode = () => {
+    nodes.update((n) => n.filter((node) => node.id !== id));
+  };
 </script>
 
+<NodeResizer minWidth={100} minHeight={30} isVisible={selected} on:keyDown={handleKeyDown} color="rgb(255, 64, 0)"
+  shouldResize={() => false} />
 <div class="iil" id={id}>
   <div class="container">
     <div class="column" >
