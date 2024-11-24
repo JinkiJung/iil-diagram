@@ -74,18 +74,41 @@
       connectionState.fromHandle?.id === Direction.LEFT ||
       connectionState.fromHandle?.id === Direction.RIGHT
     ) {
-      $edges.push({
-        source: sourceNodeId,
-        sourceHandle: connectionState.fromHandle?.id,
-        target: id,
-        id: `${sourceNodeId}--${id}`,
-        type: 'buttonedge',
-      });
+      if (connectionState.fromHandle?.id === Direction.LEFT) {
+        $edges.push({
+          source: id,
+          sourceHandle: Direction.RIGHT,
+          target: sourceNodeId,
+          targetHandle: connectionState.fromHandle?.id,
+          id: `${sourceNodeId}--${id}`,
+          type: 'buttonedge',
+        });
+      } else {
+        $edges.push({
+          source: sourceNodeId,
+          sourceHandle: connectionState.fromHandle?.id,
+          target: id,
+          targetHandle: Direction.LEFT,
+          id: `${sourceNodeId}--${id}`,
+          type: 'buttonedge',
+        });
+      }
     } else {
+      if (connectionState.fromHandle?.id === Direction.TOP) {
+        $edges.push({
+          source: id,
+          sourceHandle: Direction.BOTTOM,
+          target:sourceNodeId,
+          targetHandle: connectionState.fromHandle?.id,
+          id: `${sourceNodeId}--${id}`,
+          type: 'buttonedge',
+        });
+      }
       $edges.push({
         source: sourceNodeId,
         sourceHandle: connectionState.fromHandle?.id,
         target: id,
+        targetHandle: Direction.TOP,
         id: `${sourceNodeId}--${id}`,
         type: 'buttonedge',
       });

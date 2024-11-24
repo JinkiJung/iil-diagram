@@ -10,9 +10,11 @@
     type $$Props = EdgeProps;
    
     export let id: $$Props['id'];
+    export let source: $$Props['source'];
     export let sourceX: $$Props['sourceX'];
     export let sourceY: $$Props['sourceY'];
     export let sourcePosition: $$Props['sourcePosition'];
+    export let target: $$Props['target'];
     export let targetX: $$Props['targetX'];
     export let targetY: $$Props['targetY'];
     export let targetPosition: $$Props['targetPosition'];
