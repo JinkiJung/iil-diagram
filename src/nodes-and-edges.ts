@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import type { AppNode } from "./types";
 import type { Edge } from "@xyflow/svelte";
+import { Direction } from "./models/Direction";
 
 // We are using writables for the nodes and edges to sync them easily. When a user drags a node for example, Svelte Flow updates its position.
 export const nodes = writable<AppNode[]>([
@@ -67,21 +68,18 @@ export const nodes = writable<AppNode[]>([
   export const edges = writable<Edge[]>([
     {
       id: '1-2',
-      type: 'default',
       source: '1',
-      sourceHandle: 'r',
+      sourceHandle: Direction.RIGHT,
       target: '2',
-      targetHandle: 'l',
-      label: 'Edge Text'
+      targetHandle: Direction.LEFT,
+      type: 'buttonedge'
     },
     {
       id: '3-2',
-      type: 'smoothstep',
       source: '3',
-      sourceHandle: 'b',
+      sourceHandle: Direction.BOTTOM,
       target: '2',
-      targetHandle: 't',
-      label: 'Edge Text'
+      targetHandle: Direction.TOP,
     }
   ]);
 

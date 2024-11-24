@@ -17,6 +17,7 @@
   import IilActDoneIf from "./IilActDoneIf.svelte";
   import IilAct from "./IilAct.svelte";
   import IilCondition from "./IilCondition.svelte";
+    import { Direction } from "../models/Direction";
 
   type $$Props = NodeProps;
   export let id: $$Props["id"];
@@ -45,7 +46,6 @@
         const { width: newWidth, height: newHeight } = entry.contentRect;
         width = newWidth;
         height = newHeight;
-        console.log(`Width: ${width}, Height: ${height}`);
       }
     });
 
@@ -70,9 +70,9 @@
   };
 
   const isValidConnection = (connection: any) => {
-    if ((connection.sourceHandle === "r" || connection.sourceHandle === "r-yes" || connection.sourceHandle === "r-no") && connection.targetHandle === "l") {
+    if ((connection.sourceHandle === Direction.RIGHT || connection.sourceHandle === Direction.RIGHT_TOP || connection.sourceHandle === Direction.RIGHT_BOTTOM) && connection.targetHandle === Direction.LEFT) {
       return true;
-    } else if (connection.sourceHandle === "b" && connection.targetHandle === "t") {
+    } else if (connection.sourceHandle === Direction.BOTTOM && connection.targetHandle === Direction.TOP) {
       return true;
     } 
     return false;
@@ -139,17 +139,17 @@
   </div>
 </div>
 <Handle type="target" position={Position.Left}
-  id="l" style="top:16px; left: -3px;" {isValidConnection}/>
+  id={Direction.LEFT} style="top:16px; left: -3px;" {isValidConnection}/>
 <Handle type="target" position={Position.Top}
-  id="t" style="top:0px; left: 130px;" {isValidConnection}/>
+  id={Direction.TOP} style="top:-5px; left: 130px;" {isValidConnection}/>
 <Handle type="source" position={Position.Bottom}
-  id="b" style="bottom:0px; left: 130px;" {isValidConnection}/>
+  id={Direction.BOTTOM} style="top: 30px; left: 130px;" {isValidConnection}/>
 {#if !hasCheckout}
 <Handle
   type="source"
   position={Position.Right}
   style="top:16px; right: -3px;"
-  id="r"
+  id={Direction.RIGHT}
   {isValidConnection}
 />
 {:else}
@@ -158,7 +158,7 @@
   position={Position.Right}
   style="top:0px; right: -3px;"
   {isValidConnection}
-  id="r-yes"
+  id={Direction.RIGHT_TOP}
 />
 
 <Handle
@@ -166,7 +166,7 @@
   position={Position.Right}
   style="top:{height}px; right: -3px;"
   {isValidConnection}
-  id="r-no"
+  id={Direction.RIGHT_BOTTOM}
 />
 {/if}
 
