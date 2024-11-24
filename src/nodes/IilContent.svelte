@@ -16,10 +16,13 @@
     export let value: string = "";
   </script>
   
-  <div class="wrapper gradient nodrag fitChild">
-    <div class="inner">
-        <RoundRect {hasCircle} text={value} {circleOnLeft} {placeholder}>
-        </RoundRect>
-    </div>
+  <div class="nodrag item">
+        <RoundRect {hasCircle} text={value} {circleOnLeft} {placeholder} />
   </div>
-  
+  <style>
+    .item {
+      display: flex;
+      align-self: flex-start;
+      padding: 2px;
+    }
+  </style>

@@ -17,10 +17,15 @@
     export let value: string = "";
   </script>
   
-  <div class="wrapper gradient nodrag fitChild">
-    <div class="inner">
-        <Hexagon {hasCircle} text={value} {circleOnLeft} {placeholder}>
-        </Hexagon>
-    </div>
+  <div class="nodrag item">
+        <Hexagon {hasCircle} text={value} {circleOnLeft} {placeholder} />
   </div>
+
+  <style>
+    .item {
+      display: flex;
+      align-self: flex-start;
+      padding: 2px;
+    }
+  </style>
   

@@ -55,13 +55,13 @@
     }
    
     .edgeButton {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       background: #eee;
       border: 1px solid #fff;
       cursor: pointer;
       border-radius: 50%;
-      font-size: 12px;
+      font-size: 8px;
       line-height: 1;
     }
    

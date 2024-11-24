@@ -22,9 +22,13 @@
     };
   </script>
   
-  <div class="wrapper gradient nodrag fitChild">
-    <div class="inner">
-      <Rect text={value} />
-    </div>
+  <div class="nodrag item">
+    <Rect text={value} />
   </div>
-  
+  <style>
+    .item {
+      display: flex;
+      align-self: flex-start;
+      padding: 2px;
+    }
+  </style>

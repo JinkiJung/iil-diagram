@@ -13,7 +13,6 @@
     type NodeTypes,
     Handle,
   } from "@xyflow/svelte";
-  import CustomNode from "./nodes/CustomNode.svelte";
   import TextNode from "./nodes/TextNode.svelte";
   import IilNode from "./nodes/IilNode.svelte";
   import { nodes, edges } from "./nodes-and-edges";
@@ -25,7 +24,6 @@
   import { Direction } from "./models/Direction";
 
   const nodeTypes: NodeTypes = {
-    custom: CustomNode,
     textinput: TextNode,
     iil: IilNode,
   };
@@ -72,7 +70,9 @@
     console.log(connectionState);
     if (
       connectionState.fromHandle?.id === Direction.LEFT ||
-      connectionState.fromHandle?.id === Direction.RIGHT
+      connectionState.fromHandle?.id === Direction.RIGHT ||
+      connectionState.fromHandle?.id === Direction.RIGHT_TOP ||
+      connectionState.fromHandle?.id === Direction.RIGHT_BOTTOM
     ) {
       if (connectionState.fromHandle?.id === Direction.LEFT) {
         $edges.push({
