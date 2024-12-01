@@ -119,7 +119,6 @@
     </div>
     
     <div class="column">
-      <div class="row">
         {#if hasCheckout}
         <div style="position: relative; width: 100%; height: 100%;">
           <svg width="100" height={height}>
@@ -129,11 +128,13 @@
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%);">
             <IilCondition hasCircle={false} value="test" placeholder="output" />
             </div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, 53%);">
+              <button class="closeButton" on:click={() => hasCheckout = false}>-</button>
+            </div>
         </div>
         {:else}
-        <button on:click="{() => hasCheckout = true}">+</button>
+        <button class="expandButton" on:click="{() => hasCheckout = true}">+</button>
         {/if}
-      </div>
     </div>
   
   </div>
@@ -209,4 +210,29 @@
       0 2px 4px -1px rgb(0 0 0 / 8%);
     border-radius: 2px;
   }
+  .closeButton {
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+    .expandButton {
+      background-color: skyblue;
+      border: none;
+      color: white;
+      width: 12px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
 </style>
