@@ -13,15 +13,15 @@ export const nodes = writable<AppNode[]>([
       y: 0
     },
     data: {
-      activateIf: "hello",
-      input: "dear",
-      actor: "me",
-      act: "doing what",
-      actDoneIf: "trash",
-      output: "world"
+      activateIf: "차를 탈 준비가 완료됨",
+      input: "열쇠, 열려 있는 차 문",
+      actor: "운전자",
+      act: "차 문을 열고 차에 탑승하기",
+      actDoneIf: "운전석에 앉아 있음",
+      output: "탑승 완료"
     },
     style: `
-      backgroundColor: rgba(208, 192, 247, 0.2);
+      backgroundColor: rgba(173, 216, 230, 0.3);
     `
   },
   {
@@ -32,15 +32,15 @@ export const nodes = writable<AppNode[]>([
       y: 0
     },
     data: {
-      activateIf: "hello",
-      input: "dear",
-      actor: "me",
-      act: "doing what",
-      actDoneIf: "trash",
-      output: "world"
+      activateIf: "탑승 완료",
+      input: "운전석에 앉아 있음",
+      actor: "운전자",
+      act: "안전벨트를 착용하기",
+      actDoneIf: "안전벨트 착용됨",
+      output: "운전 준비 완료"
     },
     style: `
-      backgroundColor: rgba(208, 192, 247, 0.2);
+      backgroundColor: rgba(173, 216, 230, 0.3);
     `
   },
   {
@@ -51,18 +51,17 @@ export const nodes = writable<AppNode[]>([
       y: 300
     },
     data: {
-      activateIf: "hello",
-      input: "dear",
-      actor: "me",
-      act: "doing what",
-      actDoneIf: "trash",
-      output: "world"
+      activateIf: "운전 준비 완료",
+      input: "안전벨트 착용됨",
+      actor: "운전자",
+      act: "시동을 걸고 기어를 조작하기",
+      actDoneIf: "차가 이동할 준비 완료됨",
+      output: "운전 시작 가능"
     },
     style: `
-      backgroundColor: rgba(208, 192, 247, 0.2);
+      backgroundColor: rgba(173, 216, 230, 0.3);
     `
-  }
-  ]);
+  }]);
  
   // same for edges
   export const edges = writable<Edge[]>([
@@ -75,11 +74,11 @@ export const nodes = writable<AppNode[]>([
       type: 'buttonedge'
     },
     {
-      id: '3-2',
-      source: '3',
-      sourceHandle: Direction.BOTTOM,
-      target: '2',
-      targetHandle: Direction.TOP,
+      id: '2-3',
+      source: '2',
+      sourceHandle: Direction.RIGHT,
+      target: '3',
+      targetHandle: Direction.LEFT,
     }
   ]);
 
