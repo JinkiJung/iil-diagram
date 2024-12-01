@@ -126,9 +126,9 @@
             <line x1="0" y1="0" x2="100" y2="100%" stroke="black" stroke-width="1" />
             <line x1="0" y1="100%" x2="100%" y2="0" stroke="black" stroke-width="1" />
           </svg>
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%);">
             <IilCondition hasCircle={false} value="test" placeholder="output" />
-          </div>
+            </div>
         </div>
         {:else}
         <button on:click="{() => hasCheckout = true}">+</button>
