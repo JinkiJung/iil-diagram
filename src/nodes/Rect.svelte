@@ -1,13 +1,27 @@
 <script>
-    import { getTextLengthInPx } from "../lib/textLengthRuler";
+  import { onMount } from "svelte";
+  import { getTextLengthInPx } from "../lib/textLengthRuler";
+  import { componentStyles, rectDimensions } from "../variables";
 
   export let text = "";
   export let font = "10px sans-serif";
-    let height = 14; // Default width
+    let height = 10; // Default width
     let width = 80; // Adjust height based on width
     const padding = 2;
     let input_width = width - padding;
     let min_input_width = 80;
+    let fill = 'white';
+    let stroke = '#555';
+
+    onMount(() => {
+        rectDimensions.subscribe(value => {
+            height = value.height;
+        });
+        componentStyles.subscribe(value => {
+          fill = value.fill;
+          stroke = value.stroke;
+        });
+    });
     
     const paddingOppositeCircle = 30;
 
@@ -30,7 +44,7 @@
     $: text, updateWidth();
   </script>
   <svg class="roundrect" width={width} height={height} xmlns="http://www.w3.org/2000/svg">
-    <rect x="0.5" y="0.5" width={width - 1} height={height - 1} fill="white" stroke="#555" />
+    <rect x="0.5" y="0.5" width={width - 1} height={height - 1} fill={fill} stroke={stroke} />
     <foreignObject x={1} y={1} width={input_width} height={height - 2}>
       <div>
         <input style="width: 100%;" type="text" placeholder="Act" bind:value={text}>

@@ -191,6 +191,7 @@
     box-sizing: border-box; /* Include padding in element’s width */
     flex-direction: row;
     align-items: stretch;
+    border: 0.5px solid black;
   }
 
   .row {
